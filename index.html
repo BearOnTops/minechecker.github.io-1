@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minecraft Username Checker</title>
+  <meta name="description" content="Check if a Minecraft username is available using the Mojang API." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="orb" aria-hidden="true"></div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span>MineChecker</span>
+      </div>
+      <p class="subtitle">Instantly see if a <b>Minecraft</b> username is available! Also Shows Capes & Skins!</p>
+    </header>
+
+    <main class="card">
+      <div class="grid">
+        <section>
+          <form id="form" novalidate>
+            <label for="name" class="sr-only">Minecraft Username</label>
+            <div class="field">
+              <input id="name" class="input" name="name" type="text" placeholder="Enter a username (e.g. StarWarsp!)" maxlength="16" />
+              <button id="checkBtn" class="btn" type="submit">Check</button>
+            </div>
+            <p class="hint">
+              Allowed: <b>letters</b>, <b>numbers</b>, <b>underscore</b>. Length <b>3–16</b>.
+              Press <span class="kbd">Enter</span> or click to check.
+            </p>
+          </form>
+          <div class="divider"></div>
+          <div class="examples">
+            <button class="chip" data-example="Notch">Notch</button>
+            <button class="chip" data-example="Dream">Dream</button>
+            <button class="chip" data-example="Axolotl_">Axolotl_</button>
+            <button class="chip" data-example="Super_Crafter_77">Super_Crafter_77</button>
+          </div>
+          <p class="note" style="margin-top:10px">
+            Note: Some usernames appear available but may be <b>locked</b> (37-day cooldown) or <b>filtered</b> by Mojang.
+          </p>
+        </section>
+
+        <section class="panel" id="resultPanel" aria-live="polite" aria-atomic="true">
+          <div id="stateIcon" class="spinner" aria-hidden="true" style="display:none;"></div>
+          <div>
+            <div id="status" class="status muted">Enter a username to check availability.</div>
+            <div id="details" class="small">Waiting for you to submit a name…</div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer style="margin-top:16px; text-align:center" class="small">
+      Built with ❤️ for players (Open Source). Not affiliated with Mojang/Microsoft.
+    </footer>
+  </div>
+
+  
+  <aside class="sidebar" id="sidebar" aria-live="polite" aria-atomic="true">
+    <button class="close-btn" id="closeSidebar" type="button">Close</button>
+    <h2>Player Profile</h2>
+    <div class="skin-preview" id="skinPreview"> </div>
+    <div id="uuidLine" class="uuid"></div>
+    <div class="capes" id="capes">
+      <h3>Capes</h3>
+      <div class="cape-grid" id="capeGrid"></div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
